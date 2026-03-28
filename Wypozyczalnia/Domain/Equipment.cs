@@ -3,13 +3,14 @@
 public abstract class Equipment
 {
     public static int id = 0;
+    public int ID { get; }
     private bool available;
     private string name;
     public string Name {get => name;}
     
     protected Equipment(bool available, string name)
     {
-        id = ++id;
+        ID = ++id;
         this.available = available;
         this.name = name;
     }
@@ -20,23 +21,23 @@ public abstract class Equipment
 
     public override string ToString()
     {
-        return "Type: " + this.GetType() + ", ID: " + id + ", Name: " + this.Name;
+        return "Type: " + this.GetType() + ", ID: " + ID + ", Name: " + this.Name;
     }
 }
 
 public class Laptop: Equipment
 {
     public string operetingSystem {get; }
-    public int ramGB { get; set; }
-    public Laptop(bool available, string name, string operetingSystem, int ramGb) : base(available, name)
+    public int ramGB { get; }
+    public Laptop(bool available, string name/*, string operetingSystem, int ramGb*/) : base(available, name)
     {
-        this.operetingSystem = operetingSystem;
-        this.ramGB = ramGb;
+        //this.operetingSystem = operetingSystem;
+        //this.ramGB = ramGb;
     }
     
     public override string ToString()
     {
-        return "Typ: " + this.GetType() + ", ID: " + id + ", Nazwa: " + this.Name + "System operacyjny: " + this.operetingSystem + ", RAM[GB]: " + this.ramGB;
+        return "Typ: " + this.GetType() + ", ID: " + ID + ", Nazwa: " + this.Name;// + "System operacyjny: " + this.operetingSystem + ", RAM[GB]: " + this.ramGB;
     }
 }
 
@@ -44,15 +45,15 @@ public class Projector: Equipment
 {
     public string resolution { get; }
     public int lumens { get; }
-    public Projector(bool available, string name, string resolution, int lumens) : base(available, name)
+    public Projector(bool available, string name/*, string resolution, int lumens*/) : base(available, name)
     {
-        this.resolution = resolution;
-        this.lumens = lumens;
+        //this.resolution = resolution;
+        //this.lumens = lumens;
     }
     
     public override string ToString()
     {
-        return "Typ: " + this.GetType() + ", ID: " + id + ", Nazwa: " + this.Name + ", Rozdzielczosc: " + this.resolution + ", Lumeny: " + this.lumens;
+        return "Typ: " + this.GetType() + ", ID: " + ID + ", Nazwa: " + this.Name; // + ", Rozdzielczosc: " + this.resolution + ", Lumeny: " + this.lumens;
     }
 }
 
@@ -60,14 +61,14 @@ public class Camera : Equipment
 {
     public string lensTYpe { get; }
     public bool hasFlash { get; }
-    public Camera(bool available, string name, string lensTYpe, bool hasFlash) : base(available, name)
+    public Camera(bool available, string name/*, string lensTYpe, bool hasFlash*/) : base(available, name)
     {
-        this.lensTYpe = lensTYpe;
-        this.hasFlash = hasFlash;
+        //this.lensTYpe = lensTYpe;
+        //this.hasFlash = hasFlash;
     }
     
     public override string ToString()
     {
-        return "Typ: " + this.GetType() + ", ID: " + id + ", Nazwa: " + this.Name + ", Typ obiektywu: " + this.lensTYpe + ", Czy ma lampe: " + this.hasFlash;
+        return "Typ: " + this.GetType() + ", ID: " + ID + ", Nazwa: " + this.Name;// + ", Typ obiektywu: " + this.lensTYpe + ", Czy ma lampe: " + this.hasFlash;
     }
 }

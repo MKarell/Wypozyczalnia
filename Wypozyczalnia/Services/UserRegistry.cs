@@ -35,4 +35,14 @@ public class UserRegistry
         }
         Console.Clear();
     }
+
+    public User GetByID(int id)
+    {
+        foreach (var eq in listOfUsers)
+        {
+            if(id == eq.ID)
+                return eq;
+        }
+        return null;
+    }
 }

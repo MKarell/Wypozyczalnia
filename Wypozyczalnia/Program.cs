@@ -7,6 +7,7 @@ public class Program
         var active = true;
         UserRegistry users = new UserRegistry();
         EquipmentRegistry equipments = new EquipmentRegistry();
+        RentalService rentals = new RentalService();
 
         while (active)
         {
@@ -43,6 +44,7 @@ public class Program
                     Console.ReadKey();
                     break;
                 case 5:
+                    rentals.AddRent(equipments,users);
                     break;
                 case 6:
                     break;

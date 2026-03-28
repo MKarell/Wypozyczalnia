@@ -3,13 +3,15 @@
 public abstract class User
 {
     private static int _id;
+    public int ID { get; }
     private string name;
     private string lastName;
-    public List<Equipment> rentEquipments;
+    public int maxHire;
+    public List<Equipment> rentEquipments {get; set;}
 
     public User(String name, String lastName)
     {
-        _id = ++_id;
+        ID = ++_id;
         this.name = name;
         this.lastName = lastName;
     }
