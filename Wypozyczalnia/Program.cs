@@ -32,13 +32,15 @@ public class Program
                     users.AddUser();
                     break;
                 case 2:
-                    equipments.Add();
+                    equipments.AddEquipments();
                     break;
                 case 3:
                     Console.WriteLine(equipments.GetAll());
+                    Console.ReadKey();
                     break;
                 case 4:
                     Console.WriteLine(equipments.GetAll(true));
+                    Console.ReadKey();
                     break;
                 case 5:
                     break;

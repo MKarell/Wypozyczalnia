@@ -12,25 +12,37 @@ public class EquipmentRegistry
         listOfEquipments = new List<Equipment>();
     }
     
-    public void Add()
+    public void AddEquipments()
     {
         Console.WriteLine("Podaj nazwe sprzętu:");
         var name = Console.ReadLine();
-        Console.Write("1-Laptop, 2-Projektor, 3-Kamera");
-        var eq = Console.Read();
+        Console.WriteLine("1-Laptop, 2-Projektor, 3-Kamera:");
+        var eq = int.Parse(Console.ReadLine());
         if (eq == 1)
         {
-            Equipment newEq = new Laptop(true, name);
+            Console.WriteLine("Podaj nazwe systemu operacyjnego:");
+            var sys = Console.ReadLine();
+            Console.WriteLine("Podaj ilość ram w GB:");
+            var ram = int.Parse(Console.ReadLine());
+            Equipment newEq = new Laptop(true, name, sys, ram);
             listOfEquipments.Add(newEq);
         }
         else if (eq == 2)
         {
-            Equipment newEq = new Projector(true, name);
+            Console.WriteLine("Podaj rozdzielczość:");
+            var res = Console.ReadLine();
+            Console.WriteLine("Podaj ilość lumenów:");
+            var lum = int.Parse(Console.ReadLine());
+            Equipment newEq = new Projector(true, name, res, lum);
             listOfEquipments.Add(newEq);
         }
         else if (eq == 3)
         {
-            Equipment newEq = new Camera(true, name);
+            Console.WriteLine("Podaj typ obiektywu:");
+            var len = Console.ReadLine();
+            Console.WriteLine("Czy zawiera lampę (true/false):");
+            var flash = bool.Parse(Console.ReadLine());
+            Equipment newEq = new Camera(true, name, len, flash);
             listOfEquipments.Add(newEq);
         }
         else
@@ -40,19 +52,22 @@ public class EquipmentRegistry
         Console.Clear();
     }
     
-    public List<Equipment> GetAll()
+    public string GetAll()
     {
-        return listOfEquipments;
+        foreach (var eq in listOfEquipments)
+        {
+            return eq.ToString();
+        }
+        return null;
     }
     
-    public List<Equipment> GetAll(bool isAvailable)
+    public string GetAll(bool isAvailable)
     {
-        
-        return listOfEquipments;
-    }
-
-    public void ChangeStatus(Equipment equipment)
-    {
-        equipment.Available = !equipment.Available;
+        foreach (var eq in listOfEquipments)
+        {
+            if(isAvailable)
+                return eq.ToString();
+        }
+        return null;
     }
 }

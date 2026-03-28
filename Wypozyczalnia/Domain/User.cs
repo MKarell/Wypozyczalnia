@@ -18,18 +18,12 @@ public abstract class User
 public class Student: User
 {
     public const int maxHire = 2;
-    public Student(string name, string lastName) : base(name, lastName)
-    {
-        
-    }
+    public Student(string name, string lastName) : base(name, lastName) { }
 }
 
 public class Employee : User
 {
     public const int maxHire = 5;
 
-    public Employee(string name, string lastName) : base(name, lastName)
-    {
-        
-    }
+    public Employee(string name, string lastName) : base(name, lastName) { }
 }
