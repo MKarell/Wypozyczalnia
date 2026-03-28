@@ -1,12 +1,11 @@
-﻿using System.Runtime.ConstrainedExecution;
-
-namespace User;
+﻿namespace Wypozyczalnia.Domain;
 
 public abstract class User
 {
     private static int _id;
     private string name;
     private string lastName;
+    public List<Equipment> rentEquipments;
 
     public User(String name, String lastName)
     {
@@ -19,7 +18,7 @@ public abstract class User
 public class Student: User
 {
     public const int maxHire = 2;
-    public Student() : base("Student", null)
+    public Student(string name, string lastName) : base(name, lastName)
     {
         
     }
@@ -28,7 +27,8 @@ public class Student: User
 public class Employee : User
 {
     public const int maxHire = 5;
-    public Employee() :  base("Employee", null)
+
+    public Employee(string name, string lastName) : base(name, lastName)
     {
         
     }
